@@ -65,7 +65,7 @@ public:
         this->y = y;
     }
     //Parse from file 
-    void parse(string filepath);
+    void parse(const char* filepath);
     //Only print histogramme
     void histogramme();
     //Print and create PGM histogramme
