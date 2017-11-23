@@ -14,6 +14,18 @@
 
 vector<string> split(const string& line, char c);
 
+Image::Image(Image const& im){
+    this->x = im.x;
+    this->y = im.y;
+    this->max = im.max;
+    this->table = new int*[this->y];
+    for(int i=0; i<this->y;i++){
+        this->table[i] = new int[this->x];
+        for(int j=0; j<x; j++){
+            this->table[i][j] = im.table[i][j];
+        }
+    }
+}
 
 void Image::parse(const char* filepath){
     ifstream file (filepath);

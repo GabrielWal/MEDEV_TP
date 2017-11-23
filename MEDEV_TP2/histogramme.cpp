@@ -6,9 +6,10 @@
 //  Copyright © 2017年 Yongze. All rights reserved.
 //
 
+#include <iostream>
 #include "histogramme.h"
 
-void Image::histogramme(){
+Image Image::histogramme(){
     int tableauHisto[max+1];
     
     //count
@@ -31,23 +32,20 @@ void Image::histogramme(){
             new_table[i][j]=(j<=maximum-tableauHisto[i])?1:0;
         }
     }
-    
-    this->SetX(max);
-    this->SetY(maximum);
-    this->SetMax(1);
-    this->SetTable((int**)new_table);
-    
-    return;
+    Image newImage = Image(max,maximum,1,(int**)new_table);
+    newImage.createPGM("histo.pgm");
+    return newImage;
 }
 
-void Image::createHisto(){//createPGM
-    ofstream filePGM ("Histogramme.pgm");
+void Image::createPGM(char const* filename){
+    ofstream filePGM (filename);
     if(filePGM.is_open()){
-        filePGM<<"P2"<<endl<<"#Histogramme"<<endl<<x<<" "<<y<<endl;
+        filePGM<<"P2"<<endl<<"#No comment"<<endl<<x<<" "<<y<<endl;
         filePGM<<max<<endl;
-        for(int i=0; i<x; i++){
-            for(int j=0; j<y; j++){
-                filePGM<<table[i][j]<<" ";
+        for(int i=0; i<this->y; i++){
+            for(int j=0; j<this->x; j++){
+                cout << this->table[i][j] <<endl;
+                filePGM<<this->table[i][j]<<" ";
             }
             filePGM<<endl;
         }

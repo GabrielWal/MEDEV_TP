@@ -12,6 +12,7 @@
  */
 
 #include <cstdlib>
+#include <iostream>
 #include "image.h"
 
 using namespace std;
@@ -21,6 +22,8 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     Image im = Image("exemple.pgm");
+    Image seuillage = im.seuillage(3);
+    Image histogramme = im.histogramme();
     return 0;
 }
 

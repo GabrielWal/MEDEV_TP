@@ -36,6 +36,9 @@ public:
     Image(int x, int y, int max, int** table) :
     x(x), y(y), max(max), table(table) {
     }
+    
+    Image(Image const& im);
+    
     ~Image(){
         for(int i=0; i<this->y;i++){
             delete this->table[i];
@@ -76,10 +79,11 @@ public:
     //Parse from file 
     void parse(const char* filepath);
     //Only print histogramme
-    void histogramme();
+    Image histogramme();
     //Print and create PGM histogramme
-    void createHisto();
+    void createPGM(char const* filename);
     
+    Image seuillage(int seuil);
 };
 
 
