@@ -15,4 +15,6 @@
 #include <iostream>
 #include <fstream>
 
+int** imageToTable(std::string name);
+
 #endif /* read_hpp */
