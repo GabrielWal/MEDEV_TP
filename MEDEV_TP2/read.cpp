@@ -12,12 +12,20 @@ int** imageToTable(std::string name){
     ifstream filePGM;
     filePGM.open(name, ios::in);
     
+    string a;
     //A faire
-    
+    filePGM>>a;
     
     int x,y;
     int max;
-    int** table;
+    
+    filePGM>>x>>y>>max;
+    
+    int** table=new int*;
+    
+    for(int i=0; i<x*y; i++){
+        filePGM>>**(table+i);
+    }
     
     image imagePGM(x,y,max,table);
     
