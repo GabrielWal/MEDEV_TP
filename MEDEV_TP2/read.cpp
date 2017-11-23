@@ -19,7 +19,7 @@ int** imageToTable(std::string name){
     int x,y;
     int max;
     
-    filePGM>>x>>y>>max;
+    filePGM>>x>>y>>a>>max;
     
     int** table=new int*;
     
