@@ -1,2 +1,4 @@
-
-MEDEV_TP2/main.cpp
+MEDEV_TP2/build
+MEDEV_TP2/dist
+MEDEV_TP2/nbproject
+MEDEV_TP2/.dep.inc
