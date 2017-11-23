@@ -40,6 +40,18 @@ void Image::histogramme(){
     return;
 }
 
-void Image::createHisto(){
-    
+void Image::createHisto(){//createPGM
+    ofstream filePGM ("Histogramme.pgm");
+    if(filePGM.is_open()){
+        filePGM<<"P2"<<endl<<"#Histogramme"<<endl<<x<<" "<<y<<endl;
+        filePGM<<max<<endl;
+        for(int i=0; i<x; i++){
+            for(int j=0; j<y; j++){
+                filePGM<<table[i][j]<<" ";
+            }
+            filePGM<<endl;
+        }
+    }
+    filePGM.close();
+    return;
 }
