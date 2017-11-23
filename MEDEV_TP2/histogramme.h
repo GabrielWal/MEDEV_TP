@@ -6,15 +6,12 @@
 //  Copyright © 2017年 Yongze. All rights reserved.
 //
 
-#ifndef read_hpp
-#define read_hpp
+#ifndef histogramme_hpp
+#define histogramme_hpp
 
 #include "image.h"
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <fstream>
 
-int** imageToTable(std::string name);
+void image::histogramme();
+void image::createHisto();
 
 #endif /* read_hpp */
