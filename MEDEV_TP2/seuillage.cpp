@@ -6,16 +6,15 @@
 
 #include "image.h"
 #include "seuillage.h"
+#include <iostream>
 
 Image Image::seuillage(int seuil){
     Image newImage = Image(*this);
-    int newTable[this->y][this->x];
     for(int i=0; i<this->y;i++){
         for(int j=0; j<this->x;j++){
-            newTable[i][j] = (this->table[i][j] <= seuil)?0:1;
+            newImage.SetTableElement(i,j,(this->table[i][j] <= seuil)?0:1);
         }
     }
-    newImage.SetTable((int**)newTable);
     newImage.createPGM("seuillage.pgm");
     return newImage;
 }

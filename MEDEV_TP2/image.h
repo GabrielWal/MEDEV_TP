@@ -11,6 +11,7 @@
  * Created on November 16, 2017, 11:36 AM
  */
 #include <vector>
+#include <iostream>
 using namespace std;
 #ifndef IMAGE_H
 #define IMAGE_H
@@ -38,6 +39,8 @@ public:
     }
     
     Image(Image const& im);
+
+    Image(int x, int y, int max);
     
     ~Image(){
         for(int i=0; i<this->y;i++){
@@ -57,8 +60,10 @@ public:
         return table;
     }
 
-    void SetTable(int** table) {
-        this->table = table;
+    void SetTable(int** table);
+
+    void SetTableElement(int i, int j, int e) {
+        this->table[i][j] = e;
     }
 
     int GetX() const {

@@ -66,6 +66,19 @@ Image::Image(const char* filepath){
     parse(filepath);
 }
 
+Image::Image(int x, int y, int max) {
+    this->x = x;
+    this->y = y;
+    this->max = max;
+    this->table = new int*[this->y];
+    for(int i=0; i<this->y;i++){
+        this->table[i] = new int[this->x];
+        for(int j=0; j<this->x; j++){
+            this->table[i][j] = table[i][j];
+        }
+    }
+}
+
 vector<string> split(const string& line, char c){
     vector<string> v;
     stringstream ss(line);
@@ -76,4 +89,15 @@ vector<string> split(const string& line, char c){
 	}
     }
     return v;
+}
+
+void Image::SetTable(int** table) {
+    cout << table[0][0] << endl;
+    this->table = new int*[this->y];
+    for(int i=0; i<this->y;i++){
+        this->table[i] = new int[this->x];
+        for(int j=0; j<this->x; j++){
+            this->table[i][j] = table[i][j];
+        }
+    }
 }
