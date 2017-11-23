@@ -14,7 +14,7 @@
 using namespace std;
 #ifndef IMAGE_H
 #define IMAGE_H
-class image{
+class Image{
 private:
     //x,y dimensiosn
     int x;
@@ -25,14 +25,23 @@ private:
     int** table;
 
 public:
-    image() {
-        
+    Image() {
+        this->x = 0;
+        this->y = 0;
+        this->max = 0;
     }
     
-    image(int x, int y, int max, int** table) :
+    Image(const char* filepath);
+    
+    Image(int x, int y, int max, int** table) :
     x(x), y(y), max(max), table(table) {
     }
-
+    ~Image(){
+        for(int i=0; i<this->y;i++){
+            delete this->table[i];
+        }
+        delete this->table;   
+    }
     int GetMax() const {
         return max;
     }

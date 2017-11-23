@@ -20,7 +20,7 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    
+    Image im = Image("exemple.pgm");
     return 0;
 }
 
