@@ -9,7 +9,7 @@
 #ifndef histogramme_hpp
 #define histogramme_hpp
 
-#include <iostream>
+//#include <iostream>
 
 #include "image.h"
 

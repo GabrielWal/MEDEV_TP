@@ -16,25 +16,25 @@ void Image::histogramme(){
         tableauHisto[**(table+i)]++;
     }
     
-    //find new y i.e. maximum in tableauhisto[] except for #{0}
+    //find new y i.e. maximum in tableauhisto[]
     int maximum=0;
-    for(int i=1; i<max; i++){
+    for(int i=0; i<max; i++){
         if(tableauHisto[i]>=maximum){
             maximum=tableauHisto[i];
         }
     }
     
-    int new_table[max-1][maximum];
+    int new_table[max][maximum];
     
     for(int i=0; i<max; i++){
         for(int j=0; j<maximum; j++){
-            new_table[i][j]=(j<=maximum-tableauHisto[i])?i+1:0;
+            new_table[i][j]=(j<=maximum-tableauHisto[i])?1:0;
         }
     }
     
     this->SetX(max);
     this->SetY(maximum);
-    this->SetMax(max);
+    this->SetMax(1);
     this->SetTable((int**)new_table);
     
     return;
