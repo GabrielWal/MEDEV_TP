@@ -9,9 +9,8 @@
 #ifndef histogramme_hpp
 #define histogramme_hpp
 
-#include "image.h"
+#include <iostream>
 
-void image::histogramme();
-void image::createHisto();
+#include "image.h"
 
 #endif /* read_hpp */
