@@ -15,7 +15,7 @@ typedef struct coord {
 class Dames { // classe définissant un plateau de jeu de dames
 private:
 	int plateau[N][N];
-	vector<Pions> pions; // liste des pions
+	vector<Pion> pions; // liste des pions
 public:
 	Dames(); // Constructeur
 	vector<coord> deplacements_possibles();

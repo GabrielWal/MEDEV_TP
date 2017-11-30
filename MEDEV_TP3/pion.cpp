@@ -1,5 +1,5 @@
 
-#include pion.h
+#include "pion.h"
 
 Pion::Pion(bool joueur){
 	this->joueurBlanc = joueur;

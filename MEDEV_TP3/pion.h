@@ -18,7 +18,7 @@ public:
 	Pion();
 	Pion(bool joueurBlanc);
 	Pion(int x, int y, bool joueurBlanc);
-	bool getStateDame() const {return this->state;}
+	bool getStateDame() const {return this->stateDame;}
 	bool getJoueur() const {return this->joueurBlanc;}
 	int getX() const {return this->x;}
 	int getY() const {return this->y;}
@@ -26,10 +26,10 @@ public:
 	void setJoueur(bool joueur) {this->joueurBlanc = joueur;}
 	void setX(int newX) {this->x = newX;}
 	void setY(int newY) {this->y = newY;}
-	void deplace(int newX, int newY){
+	void setPosition(int newX, int newY){
 		this->x = newX;
 		this->y = newY;
 	}
-}
+};
 
 #endif

@@ -45,28 +45,28 @@ vector<coord> Dames::deplacements_possibles() {
 			coord newMove;
 			newMove.x = move.x-1;
 			newMove.y = move.y-1;
-			newMove.index = move.i;
+			newMove.index = move.index;
 			deplacements.push_back(newMove);
 		}
 		if (move.x-1>0 && move.y+1<N && plateau[move.x-1,move.y+1]==0) {
 			coord newMove;
 			newMove.x = move.x-1;
 			newMove.y = move.y+1;
-			newMove.index = move.i;
+			newMove.index = move.index;
 			deplacements.push_back(newMove);
 		}
 		if (move.x+1<N && move.y-1>0 && plateau[move.x+1,move.y-1]==0) {
 			coord newMove;
 			newMove.x = move.x+1;
 			newMove.y = move.y-1;
-			newMove.index = move.i;
+			newMove.index = move.index;
 			deplacements.push_back(newMove);
 		}
 		if (move.x+1<N && move.y+1<N && plateau[move.x+1,move.y+1]==0) {
 			coord newMove;
 			newMove.x = move.x+1;
 			newMove.y = move.y+1;
-			newMove.index = move.i;
+			newMove.index = move.index;
 			deplacements.push_back(newMove);
 		}
 	}
