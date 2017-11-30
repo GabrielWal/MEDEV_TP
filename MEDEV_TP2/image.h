@@ -42,12 +42,13 @@ public:
 
     Image(int x, int y, int max);
     
-    ~Image(){
-        for(int i=0; i<this->y;i++){
-            delete this->table[i];
-        }
-        delete this->table;   
-    }
+    // ~Image(){
+    //     for(int i=0; i<this->y;i++){
+    //         delete this->table[i];
+    //     }
+    //     delete this->table;   
+    // }
+    
     int GetMax() const {
         return max;
     }

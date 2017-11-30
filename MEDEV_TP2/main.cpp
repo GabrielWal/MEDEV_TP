@@ -22,8 +22,8 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     Image im = Image("exemple.pgm");
-    Image seuillage = im.seuillage(3);
-    //Image histogramme = im.histogramme();
+    // Image seuillage = im.seuillage(3); // ça marche
+    Image histogramme = im.histogramme();
     return 0;
 }
 

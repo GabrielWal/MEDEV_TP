@@ -74,7 +74,7 @@ Image::Image(int x, int y, int max) {
     for(int i=0; i<this->y;i++){
         this->table[i] = new int[this->x];
         for(int j=0; j<this->x; j++){
-            this->table[i][j] = table[i][j];
+            this->table[i][j] = 0;
         }
     }
 }
