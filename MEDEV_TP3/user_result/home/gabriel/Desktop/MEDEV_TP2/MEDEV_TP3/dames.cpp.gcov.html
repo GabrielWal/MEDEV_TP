@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - user_test.info - /home/gabriel/Desktop/MEDEV_TP2/MEDEV_TP3/dames.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">home/gabriel/Desktop/MEDEV_TP2/MEDEV_TP3</a> - dames.cpp<span style="font-size: 80%;"> (source / <a href="dames.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">user_test.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">55</td>
+            <td class="headerCovTableEntry">68</td>
+            <td class="headerCovTableEntryMed">80.9 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-12-07 11:25:28</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntryMed">85.7 %</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : #include &quot;dames.h&quot;</a>
+<span class="lineNum">       2 </span>            : #include &lt;iostream&gt;
+<span class="lineNum">       3 </span>            : #include &quot;pion.h&quot;
+<span class="lineNum">       4 </span>            : #include &lt;vector&gt;
+<span class="lineNum">       5 </span>            : 
+<a name="6"><span class="lineNum">       6 </span>            : using namespace std;</a>
+<span class="lineNum">       7 </span>            : 
+<span class="lineNum">       8 </span><span class="lineCov">         10 : Dames::Dames() {</span>
+<span class="lineNum">       9 </span>            :         // On initialise les pions de deux joueurs (20 pions chacun au départ)
+<span class="lineNum">      10 </span><span class="lineCov">         30 :         for (int i=0; i&lt;2; i++) {</span>
+<span class="lineNum">      11 </span><span class="lineCov">        420 :                 for (int j=0; j&lt;20; j++) {</span>
+<span class="lineNum">      12 </span><span class="lineCov">        400 :                         pions.push_back(Pion((i==0)?false:true));</span>
+<span class="lineNum">      13 </span>            :                 }
+<span class="lineNum">      14 </span>            :         }
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            :         // On initialise les coordonnées et le plateau
+<span class="lineNum">      17 </span><span class="lineCov">         10 :         int cnt = 0;</span>
+<span class="lineNum">      18 </span><span class="lineCov">        110 :         for (int i=0; i&lt;10; i++) {</span>
+<span class="lineNum">      19 </span><span class="lineCov">       1100 :                 for (int j=0; j&lt;10; j++) {</span>
+<span class="lineNum">      20 </span><span class="lineCov">       1000 :                         if (j&lt;4 &amp;&amp; (i+j)%2) { // pions blancs</span>
+<span class="lineNum">      21 </span><span class="lineCov">        200 :                                 pions[cnt].setPosition(i,j);</span>
+<span class="lineNum">      22 </span><span class="lineCov">        200 :                                 cnt++;</span>
+<span class="lineNum">      23 </span><span class="lineCov">        200 :                                 plateau[i][j] = 1;</span>
+<span class="lineNum">      24 </span>            :                         }
+<span class="lineNum">      25 </span><span class="lineCov">        800 :                         else if (j&gt;5 &amp;&amp; (i+j)%2) { // pions noirs</span>
+<span class="lineNum">      26 </span><span class="lineCov">        200 :                                 pions[cnt].setPosition(i,j);</span>
+<span class="lineNum">      27 </span><span class="lineCov">        200 :                                 cnt++;</span>
+<span class="lineNum">      28 </span><span class="lineCov">        200 :                                 plateau[i][j] = 1;</span>
+<span class="lineNum">      29 </span>            :                         }
+<span class="lineNum">      30 </span><span class="lineCov">        600 :                         else { plateau[i][j] = 0; }</span>
+<span class="lineNum">      31 </span>            :                 }
+<span class="lineNum">      32 </span>            :         }
+<a name="33"><span class="lineNum">      33 </span><span class="lineCov">         10 : }</span></a>
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span><span class="lineNoCov">          0 : void Dames::disp() const {</span>
+<span class="lineNum">      36 </span>            :         // Affiche le plateau de jeu
+<span class="lineNum">      37 </span><span class="lineNoCov">          0 :         cout &lt;&lt; &quot;=====================&quot; &lt;&lt; endl &lt;&lt; &quot;  &quot;;</span>
+<span class="lineNum">      38 </span><span class="lineNoCov">          0 :         for (int i=-1; i&lt;N; i++) {</span>
+<span class="lineNum">      39 </span><span class="lineNoCov">          0 :                 for (int j=-1; j&lt;N; j++) {</span>
+<span class="lineNum">      40 </span><span class="lineNoCov">          0 :                         if (i==-1 &amp;&amp; j&gt;-1) {</span>
+<span class="lineNum">      41 </span><span class="lineNoCov">          0 :                                 cout &lt;&lt; j &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">      42 </span>            :                         }
+<span class="lineNum">      43 </span><span class="lineNoCov">          0 :                         if (j==-1 &amp;&amp; i&gt;-1) {</span>
+<span class="lineNum">      44 </span><span class="lineNoCov">          0 :                                 cout &lt;&lt; i &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">      45 </span>            :                         }
+<span class="lineNum">      46 </span><span class="lineNoCov">          0 :                         if (i&gt;-1 &amp;&amp; j&gt;-1) {</span>
+<span class="lineNum">      47 </span><span class="lineNoCov">          0 :                                 cout &lt;&lt; plateau[i][j] &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">      48 </span>            :                         }
+<span class="lineNum">      49 </span>            :                 }
+<span class="lineNum">      50 </span><span class="lineNoCov">          0 :                 cout &lt;&lt; endl;</span>
+<span class="lineNum">      51 </span>            :         }
+<span class="lineNum">      52 </span><span class="lineNoCov">          0 :         cout &lt;&lt; &quot;=====================&quot; &lt;&lt; endl;</span>
+<a name="53"><span class="lineNum">      53 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      54 </span>            : 
+<span class="lineNum">      55 </span><span class="lineCov">        290 : coord fillCoord(int x, int y, int i) {</span>
+<span class="lineNum">      56 </span>            :         // Fill a coord struct with the three arguments and return it
+<span class="lineNum">      57 </span>            :         coord move;
+<span class="lineNum">      58 </span><span class="lineCov">        290 :         move.x = x;</span>
+<span class="lineNum">      59 </span><span class="lineCov">        290 :         move.y = y;</span>
+<span class="lineNum">      60 </span><span class="lineCov">        290 :         move.index = i;</span>
+<span class="lineNum">      61 </span><span class="lineCov">        290 :         return move;</span>
+<a name="62"><span class="lineNum">      62 </span>            : }</a>
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span><span class="lineCov">          5 : vector&lt;coord&gt; Dames::deplacements_possibles() {</span>
+<span class="lineNum">      65 </span>            :         // Liste des déplacements possibles de tous les pions
+<span class="lineNum">      66 </span>            :         // On renvoie une liste de coordonnées
+<span class="lineNum">      67 </span>            :         // (on associe à chaque coord l'index du pion concerné)
+<span class="lineNum">      68 </span><span class="lineCov">          5 :         vector&lt;coord&gt; deplacements;</span>
+<span class="lineNum">      69 </span><span class="lineCov">        205 :         for (int i=0; i&lt;pions.size(); i++) { // on parcourt tous les pions</span>
+<span class="lineNum">      70 </span><span class="lineCov">        200 :                 coord move = fillCoord(pions[i].getX(), pions[i].getY(), i);</span>
+<span class="lineNum">      71 </span><span class="lineCov">        200 :                 if (move.x-1&gt;=0 &amp;&amp; move.y-1&gt;=0 &amp;&amp; plateau[move.x-1][move.y-1]==0) {</span>
+<span class="lineNum">      72 </span>            :                         // si la case en haut à gauche est libre
+<span class="lineNum">      73 </span><span class="lineCov">         25 :                         coord newMove = fillCoord(move.x-1, move.y-1, move.index);</span>
+<span class="lineNum">      74 </span><span class="lineCov">         25 :                         deplacements.push_back(newMove);</span>
+<span class="lineNum">      75 </span>            :                 }
+<span class="lineNum">      76 </span><span class="lineCov">        200 :                 if (move.x-1&gt;=0 &amp;&amp; move.y+1&lt;N &amp;&amp; plateau[move.x-1][move.y+1]==0) {</span>
+<span class="lineNum">      77 </span>            :                         // si la case en bas à gauche est libre
+<span class="lineNum">      78 </span><span class="lineCov">         20 :                         coord newMove = fillCoord(move.x-1, move.y+1, move.index);</span>
+<span class="lineNum">      79 </span><span class="lineCov">         20 :                         deplacements.push_back(newMove);</span>
+<span class="lineNum">      80 </span>            :                 }
+<span class="lineNum">      81 </span><span class="lineCov">        200 :                 if (move.x+1&lt;N &amp;&amp; move.y-1&gt;=0 &amp;&amp; plateau[move.x+1][move.y-1]==0) {</span>
+<span class="lineNum">      82 </span>            :                         // si la case en haut à droite est libre
+<span class="lineNum">      83 </span><span class="lineCov">         20 :                         coord newMove = fillCoord(move.x+1, move.y-1, move.index);</span>
+<span class="lineNum">      84 </span><span class="lineCov">         20 :                         deplacements.push_back(newMove);</span>
+<span class="lineNum">      85 </span>            :                 }
+<span class="lineNum">      86 </span><span class="lineCov">        200 :                 if (move.x+1&lt;N &amp;&amp; move.y+1&lt;N &amp;&amp; plateau[move.x+1][move.y+1]==0) {</span>
+<span class="lineNum">      87 </span>            :                         // si la case en bas à droite est libre
+<span class="lineNum">      88 </span><span class="lineCov">         25 :                         coord newMove = fillCoord(move.x+1, move.y+1, move.index);</span>
+<span class="lineNum">      89 </span><span class="lineCov">         25 :                         deplacements.push_back(newMove);</span>
+<span class="lineNum">      90 </span>            :                 }
+<span class="lineNum">      91 </span>            :         }
+<span class="lineNum">      92 </span><span class="lineCov">          5 :         return deplacements;</span>
+<a name="93"><span class="lineNum">      93 </span>            : }</a>
+<span class="lineNum">      94 </span>            : 
+<span class="lineNum">      95 </span><span class="lineCov">          4 : bool Dames::deplacement(int x, int y, int u, int v) {</span>
+<span class="lineNum">      96 </span>            :         // Déplacement du pion (x,y) en (u,v)
+<span class="lineNum">      97 </span>            :         // Renvoi true si le déplacement a été possible, false sinon
+<span class="lineNum">      98 </span><span class="lineCov">          4 :         int pionIndex = -1;</span>
+<span class="lineNum">      99 </span><span class="lineCov">          8 :         vector&lt;coord&gt; deplacements = deplacements_possibles(); // liste des déplacements possibles</span>
+<span class="lineNum">     100 </span><span class="lineCov">        164 :         for (int i=0; i&lt;pions.size(); i++) {</span>
+<span class="lineNum">     101 </span>            :                 // on recherche l'index du pion qu'on veut déplacer
+<span class="lineNum">     102 </span><span class="lineCov">        160 :                 if (pions[i].getX() == x &amp;&amp; pions[i].getY() == y) {</span>
+<span class="lineNum">     103 </span><span class="lineCov">          3 :                         pionIndex = i; // index trouvé !</span>
+<span class="lineNum">     104 </span>            :                 }
+<span class="lineNum">     105 </span>            :         }
+<span class="lineNum">     106 </span><span class="lineCov">          4 :         if (pionIndex == -1) {</span>
+<span class="lineNum">     107 </span><span class="lineCov">          1 :                 return false; // on a pas trouvé d'index pour ce pion</span>
+<span class="lineNum">     108 </span>            :         }
+<span class="lineNum">     109 </span><span class="lineCov">         39 :         for (int i=0; i&lt;deplacements.size(); i++) {</span>
+<span class="lineNum">     110 </span>            :                 // on recherche si le deplacement est possible
+<span class="lineNum">     111 </span><span class="lineCov">         37 :                 if (deplacements[i].index == pionIndex &amp;&amp; deplacements[i].x == u &amp;&amp; deplacements[i].y == v) {</span>
+<span class="lineNum">     112 </span>            :                         // deplacement possible, on l'effectue sur le plateau :
+<span class="lineNum">     113 </span><span class="lineCov">          1 :                         plateau[x][y] = 0;</span>
+<span class="lineNum">     114 </span><span class="lineCov">          1 :                         plateau[u][v] = 1;</span>
+<span class="lineNum">     115 </span>            :                         // puis on change les coordonnées du pion dans la liste des pions :
+<span class="lineNum">     116 </span><span class="lineCov">          1 :                         pions[pionIndex].setPosition(u,v);</span>
+<span class="lineNum">     117 </span><span class="lineCov">          1 :                         return true;</span>
+<span class="lineNum">     118 </span>            :                 }
+<a name="119"><span class="lineNum">     119 </span>            :         }</a>
+<span class="lineNum">     120 </span><span class="lineCov">          2 :         return false; // on n'a pas peu effectuer le déplacement demandé</span>
+<span class="lineNum">     121 </span><span class="lineCov">          3 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
