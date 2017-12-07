@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-12-07 11:16:03</td>
+            <td class="headerValue">2017-12-07 11:25:28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -315,7 +315,7 @@
 <span class="lineNum">     253 </span>            : //   Expected: Foo() is even
 <a name="254"><span class="lineNum">     254 </span>            : //     Actual: it's 5</a>
 <span class="lineNum">     255 </span>            : //
-<span class="lineNum">     256 </span><span class="lineCov">          4 : class GTEST_API_ AssertionResult {</span>
+<span class="lineNum">     256 </span><span class="lineCov">          5 : class GTEST_API_ AssertionResult {</span>
 <span class="lineNum">     257 </span>            :  public:
 <span class="lineNum">     258 </span>            :   // Copy constructor.
 <span class="lineNum">     259 </span>            :   // Used in EXPECT_TRUE/FALSE(assertion_result).
@@ -347,7 +347,7 @@
 <span class="lineNum">     285 </span>            :   }
 <a name="286"><span class="lineNum">     286 </span>            : </a>
 <span class="lineNum">     287 </span>            :   // Returns true iff the assertion succeeded.
-<span class="lineNum">     288 </span><span class="lineCov">          4 :   operator bool() const { return success_; }  // NOLINT</span>
+<span class="lineNum">     288 </span><span class="lineCov">          5 :   operator bool() const { return success_; }  // NOLINT</span>
 <span class="lineNum">     289 </span>            : 
 <span class="lineNum">     290 </span>            :   // Returns the assertion's negation. Used with EXPECT/ASSERT_FALSE.
 <span class="lineNum">     291 </span>            :   AssertionResult operator!() const;
@@ -1446,13 +1446,13 @@
 <span class="lineNum">    1384 </span>            : 
 <a name="1385"><span class="lineNum">    1385 </span>            : // The helper function for {ASSERT|EXPECT}_EQ.</a>
 <span class="lineNum">    1386 </span>            : template &lt;typename T1, typename T2&gt;
-<span class="lineNum">    1387 </span><span class="lineCov">          4 : AssertionResult CmpHelperEQ(const char* lhs_expression,</span>
+<span class="lineNum">    1387 </span><span class="lineCov">          5 : AssertionResult CmpHelperEQ(const char* lhs_expression,</span>
 <span class="lineNum">    1388 </span>            :                             const char* rhs_expression,
 <span class="lineNum">    1389 </span>            :                             const T1&amp; lhs,
 <span class="lineNum">    1390 </span>            :                             const T2&amp; rhs) {
 <span class="lineNum">    1391 </span>            : GTEST_DISABLE_MSC_WARNINGS_PUSH_(4389 /* signed/unsigned mismatch */)
-<span class="lineNum">    1392 </span><span class="lineCov">          4 :   if (lhs == rhs) {</span>
-<span class="lineNum">    1393 </span><span class="lineCov">          4 :     return AssertionSuccess();</span>
+<span class="lineNum">    1392 </span><span class="lineCov">          5 :   if (lhs == rhs) {</span>
+<span class="lineNum">    1393 </span><span class="lineCov">          5 :     return AssertionSuccess();</span>
 <span class="lineNum">    1394 </span>            :   }
 <span class="lineNum">    1395 </span>            : GTEST_DISABLE_MSC_WARNINGS_POP_()
 <span class="lineNum">    1396 </span>            : 
@@ -1507,7 +1507,7 @@
 <span class="lineNum">    1445 </span>            :   // NOT a pointer, e.g. ASSERT_EQ(0, AnIntFunction()) or
 <a name="1446"><span class="lineNum">    1446 </span>            :   // EXPECT_EQ(false, a_bool).</a>
 <span class="lineNum">    1447 </span>            :   template &lt;typename T1, typename T2&gt;
-<span class="lineNum">    1448 </span><span class="lineCov">          2 :   static AssertionResult Compare(</span>
+<span class="lineNum">    1448 </span><span class="lineCov">          3 :   static AssertionResult Compare(</span>
 <span class="lineNum">    1449 </span>            :       const char* lhs_expression,
 <span class="lineNum">    1450 </span>            :       const char* rhs_expression,
 <span class="lineNum">    1451 </span>            :       const T1&amp; lhs,
@@ -1518,7 +1518,7 @@
 <span class="lineNum">    1456 </span>            :       // to match the Secret* in the other overload, which would otherwise make
 <span class="lineNum">    1457 </span>            :       // this template match better.
 <span class="lineNum">    1458 </span>            :       typename EnableIf&lt;!is_pointer&lt;T2&gt;::value&gt;::type* = 0) {
-<span class="lineNum">    1459 </span><span class="lineCov">          2 :     return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);</span>
+<span class="lineNum">    1459 </span><span class="lineCov">          3 :     return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);</span>
 <span class="lineNum">    1460 </span>            :   }
 <span class="lineNum">    1461 </span>            : 
 <span class="lineNum">    1462 </span>            :   // This version will be picked when the second argument to ASSERT_EQ() is a
