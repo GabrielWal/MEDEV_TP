@@ -1,2 +1,9 @@
-# MEDEV_TP2
-Traitement d'images au format PGM
+# TP MEDEV 
+
+## TP2 - PGM images
+
+## TP3 - Checkers
+
+For code coverage of TP3 follow the link : [CodeCoverage](https://gabrielwal.github.io/MEDEV_TP/MEDEV_TP3/user_result/)
+
+Gabriel Walbron & Adrien Jacquin
