@@ -14,11 +14,12 @@ typedef struct coord {
 
 class Dames { // classe définissant un plateau de jeu de dames
 private:
-	int plateau[N][N];
+	int plateau[N][N]; // plateau de jeu
 	vector<Pion> pions; // liste des pions
 public:
 	Dames(); // Constructeur
-	vector<coord> deplacements_possibles();
+	void disp() const; // Affiche plateau
+	vector<coord> deplacements_possibles(); // liste de déplacements possibles
 };
 
 #endif

@@ -22,7 +22,7 @@ Dames::Dames() {
 				cnt++;
 				plateau[i][j] = 1;
 			}
-			else if (j>5 && (i+j)%2) {
+			else if (j>5 && (i+j)%2) { // pions noirs
 				pions[cnt].setPosition(i,j);
 				cnt++;
 				plateau[i][j] = 1;
@@ -32,37 +32,52 @@ Dames::Dames() {
 	}
 }
 
+void Dames::disp() const {
+	// Affiche le plateau de jeu
+	for (int i=0; i<N; i++) {
+		for (int j=0; j<N; j++) {
+			cout << plateau[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+
 vector<coord> Dames::deplacements_possibles() {
 	// Liste des déplacements possibles de tous les pions
-	// On renvoie une liste de coordonnées (on associe à chaque coord l'index du pion concerné)
+	// On renvoie une liste de coordonnées
+	// (on associe à chaque coord l'index du pion concerné)
 	vector<coord> deplacements;
-	for (int i=0; i<pions.size(); i++) {
+	for (int i=0; i<pions.size(); i++) { // on parcourt tous les pions
 		coord move;
 		move.x = pions[i].getX();
 		move.y = pions[i].getY();
 		move.index = i;
-		if (move.x-1>0 && move.y-1>0 && plateau[move.x-1,move.y-1]==0) {
+		if (move.x-1>=0 && move.y-1>=0 && plateau[move.x-1][move.y-1]==0) {
+			// si la case en haut à gauche est libre
 			coord newMove;
 			newMove.x = move.x-1;
 			newMove.y = move.y-1;
 			newMove.index = move.index;
 			deplacements.push_back(newMove);
 		}
-		if (move.x-1>0 && move.y+1<N && plateau[move.x-1,move.y+1]==0) {
+		if (move.x-1>=0 && move.y+1<N && plateau[move.x-1][move.y+1]==0) {
+			// si la case en bas à gauche est libre
 			coord newMove;
 			newMove.x = move.x-1;
 			newMove.y = move.y+1;
 			newMove.index = move.index;
 			deplacements.push_back(newMove);
 		}
-		if (move.x+1<N && move.y-1>0 && plateau[move.x+1,move.y-1]==0) {
+		if (move.x+1<N && move.y-1>=0 && plateau[move.x+1][move.y-1]==0) {
+			// si la case en haut à droite est libre
 			coord newMove;
 			newMove.x = move.x+1;
 			newMove.y = move.y-1;
 			newMove.index = move.index;
 			deplacements.push_back(newMove);
 		}
-		if (move.x+1<N && move.y+1<N && plateau[move.x+1,move.y+1]==0) {
+		if (move.x+1<N && move.y+1<N && plateau[move.x+1][move.y+1]==0) {
+			// si la case en bas à droite est libre
 			coord newMove;
 			newMove.x = move.x+1;
 			newMove.y = move.y+1;
