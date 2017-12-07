@@ -43,6 +43,14 @@ TEST_F(DamesTests,test_deplacement_impossible){
         EXPECT_EQ(false,jeu.deplacement(x,y,u,v));
 }
 
+TEST_F(DamesTests,test_coordonnee_depart_deplacement_invalide){
+        const int x = 0;
+        const int y = 2;
+        const int u = 1;
+        const int v = 2;
+        EXPECT_EQ(false,jeu.deplacement(x,y,u,v));
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
