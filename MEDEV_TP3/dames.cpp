@@ -117,5 +117,73 @@ bool Dames::deplacement(int x, int y, int u, int v) {
 			return true;
 		}
 	}
-	return false; // on n'a pas peu effectuer le déplacement demandé
+	return false; // on n'a pas pu effectuer le déplacement demandé
 }
+
+int Dames::getIndex(int x, int y) const {
+	// Retourne l'index du pion de coordonnées (x,y)
+	// Retourne -1 en cas de pion non existant
+	for (int i=0; i<pions.size(); i++) {
+		if (pions[i].getX()==x && pions[i].getY()==y) {
+			// On a trouvé un pion aux bonnes coordonnées
+			return i;
+		}
+	}
+	// On n'a pas trouvé de pion à l'emplacement donné en argument
+	return -1;
+}
+
+// vector< vector<coord> > Dames::prises_possibles(int x, int y) {
+// 	// Liste des prises possibles du pion de coordonnées (x,y)
+// 	// On renvoie une liste de listes de pions prenables
+// 	// Note : chaque sous-liste contient les pions pris en un seule prise
+// 	vector< vector<coord> > prises;
+// 	for (int i=0; i<pions.size(); i++) { // On parcourt tous les pions
+// 		coord p = fillCoord(pions[i].getX(), pions[i].getY(), i); // pion d'origine
+// 		if (p.x-1>0 && p.y-1>0 && plateau[p.x-1][p.y-1]==1 && plateau[p.x-2][p.y-2]==0) {
+// 			if (pions[getIndex(p.x-1,p.y-1)].getJoueur() != pions[i].getJoueur()) {
+// 				// la case en haut à gauche est non vide, le pion qui l'occupe est à l'adversaire et on peut se déplacer derrière ce pion
+// 				vector<coord> prise; // une prise est possible, voyons combien de pions on peut prendre
+// 				vector< vector<coord> > prisesSuivantes = prises_possibles(p.x-2, p.y-2);
+// 				for (int k=0; k<prisesSuivantes[0].size(); k++) {
+// 					prise.push_back(prisesSuivantes[0][k]); // on ajoute les pions pris dans la même prise
+// 				}
+// 				for (int j=1; j<prisesSuivantes.size(); j++) { // dans le cas où on a pls trajets possibles
+
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// bool Dames::prise(int x, int y, int u, int v) {
+// 	// Prise d'un ou pls pions adverses par le pion de coordonnées (x,y)
+// 	// Le pion arrive aux coordonnées (u,v)
+// 	// Renvoie true si la prise a été possible, false sinon
+// 	int pionIndex = -1;
+// 	for (int i=0; i<pions.size(); i++) {
+// 		// on recherche l'index du pion qu'on veut déplacer
+// 		if (pions[i].getX() == x && pions[i].getY() == y) {
+// 			pionIndex = i; // index trouvé !
+// 		}
+// 	}
+// 	if (pionIndex == -1) {
+// 		return false; // on a pas trouvé d'index pour ce pion
+// 	}
+// 	// On a récupéré l'index, on vérifie que la prise est possible
+// 	vector<coordPrise> prises = prises_possibles(pionIndex);
+// 	for (int i=0; i<prises.size(); i++) { // on parcourt les prises possibles
+// 		if (prises[i].x == u && prises[i].y == v) {
+// 			// prise possible, on vérifie que le déplacement est possible
+// 			if (deplacement(x,y,u,v)) { // on a déplacé notre pion
+// 				// on supprime le(s) pion(s) adverse(s)
+// 				for (int j=0; j<prises.listePions.size(); j++) {
+// 					plateau[prises[i].listePions.x][prises[i].listePions.y] = 0;
+// 					// TODO il faudra supprimer ces pions de la liste "pions" 
+// 				}
+// 				return true;
+// 			}
+// 			return false;
+// 		}
+// 	}
+// }

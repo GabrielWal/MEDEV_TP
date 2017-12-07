@@ -21,6 +21,9 @@ public:
 	void disp() const; // Affiche plateau
 	vector<coord> deplacements_possibles(); // liste de déplacements possibles
 	bool deplacement(int x, int y, int u, int v); // deplacement du pion (i,j) en (u,v)
+	int getIndex(int x, int y) const; // retourne l'index correspondant au pion (x,y)
+	// vector< vector<coord> > Dames::prises_possibles(int x, int y); // liste des prises possibles depuis la position (x,y)
+	// bool Dames::prise(int x, int y, int u, int v);
 };
 
 #endif
