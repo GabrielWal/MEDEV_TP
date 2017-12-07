@@ -1,7 +1,9 @@
-# MEDEV_TP
+# TP MEDEV 
 
-MEDEV_TP2
+## TP2 - PGM images
 
-MEDEV_TP3
+## TP3 - Checkers
 
-Pour les derniers résultats de CodeCoverage du TP3 :[CodeCoverage](https://gabrielwal.github.io/MEDEV_TP/MEDEV_TP3/user_result/index.html)
+For code coverage of TP3 follow the link : [CodeCoverage](https://gabrielwal.github.io/MEDEV_TP/MEDEV_TP3/user_result/)
+
+Gabriel Walbron & Adrien Jacquin

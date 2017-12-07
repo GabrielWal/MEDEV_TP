@@ -31,18 +31,18 @@
             <td class="headerValue">user_test.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntry">14</td>
+            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntry">35</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-12-07 10:33:33</td>
+            <td class="headerValue">2017-12-07 11:10:29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntryHi">91.7 %</td>
+            <td class="headerCovTableEntry">23</td>
+            <td class="headerCovTableEntry">24</td>
+            <td class="headerCovTableEntryHi">95.8 %</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -63,17 +63,17 @@
 <a name="1"><span class="lineNum">       1 </span>            : #include &quot;gtest/gtest.h&quot;</a>
 <a name="2"><span class="lineNum">       2 </span>            : #include &quot;dames.h&quot;</a>
 <span class="lineNum">       3 </span>            : 
-<span class="lineNum">       4 </span><span class="lineCov">          2 : class DamesTests : public ::testing::Test {</span>
+<span class="lineNum">       4 </span><span class="lineCov">          8 : class DamesTests : public ::testing::Test {</span>
 <a name="5"><span class="lineNum">       5 </span>            :         protected:</a>
 <span class="lineNum">       6 </span>            :                 Dames jeu;
-<span class="lineNum">       7 </span><span class="lineCov">          1 :         virtual void SetUp() {</span>
-<span class="lineNum">       8 </span><span class="lineCov">          1 :                 jeu = Dames();</span>
-<a name="9"><span class="lineNum">       9 </span><span class="lineCov">          1 :         }</span></a>
+<span class="lineNum">       7 </span><span class="lineCov">          4 :         virtual void SetUp() {</span>
+<span class="lineNum">       8 </span><span class="lineCov">          4 :                 jeu = Dames();</span>
+<a name="9"><span class="lineNum">       9 </span><span class="lineCov">          4 :         }</span></a>
 <span class="lineNum">      10 </span>            : 
-<span class="lineNum">      11 </span><span class="lineCov">          1 :         virtual void TearDown() {</span>
+<span class="lineNum">      11 </span><span class="lineCov">          4 :         virtual void TearDown() {</span>
 <span class="lineNum">      12 </span>            :         // Code here will be called immediately after each test
 <span class="lineNum">      13 </span>            :         // (right before the destructor).
-<span class="lineNum">      14 </span><span class="lineCov">          1 :         }</span>
+<span class="lineNum">      14 </span><span class="lineCov">          4 :         }</span>
 <a name="15"><span class="lineNum">      15 </span>            : };</a>
 <span class="lineNum">      16 </span>            : 
 <span class="lineNum">      17 </span><span class="lineCov">          5 : TEST_F(DamesTests,test_deplacements_possibles){</span>
@@ -81,10 +81,34 @@
 <span class="lineNum">      19 </span><span class="lineCov">          1 :         EXPECT_EQ(x,jeu.deplacements_possibles().size());</span>
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      21 </span>            : 
-<span class="lineNum">      22 </span><span class="lineCov">          1 : int main(int argc, char **argv) {</span>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">          1 :   ::testing::InitGoogleTest(&amp;argc, argv);</span></a>
-<span class="lineNum">      24 </span><span class="lineCov">          1 :   return RUN_ALL_TESTS();</span>
-<span class="lineNum">      25 </span><span class="lineCov">          3 : }</span>
+<span class="lineNum">      22 </span><span class="lineCov">          5 : TEST_F(DamesTests,test_deplacement_valide){</span>
+<span class="lineNum">      23 </span><span class="lineCov">          1 :         const int x = 0;</span>
+<span class="lineNum">      24 </span><span class="lineCov">          1 :         const int y = 3;</span>
+<span class="lineNum">      25 </span><span class="lineCov">          1 :         const int u = 1;</span>
+<span class="lineNum">      26 </span><span class="lineCov">          1 :         const int v = 4;</span>
+<span class="lineNum">      27 </span><span class="lineCov">          1 :         EXPECT_EQ(true,jeu.deplacement(x,y,u,v)); </span>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span><span class="lineCov">          5 : TEST_F(DamesTests,test_deplacement_hors_plateau){</span>
+<span class="lineNum">      31 </span><span class="lineCov">          1 :         const int x = 0;</span>
+<span class="lineNum">      32 </span><span class="lineCov">          1 :         const int y = 3;</span>
+<span class="lineNum">      33 </span><span class="lineCov">          1 :         const int u = -1;</span>
+<span class="lineNum">      34 </span><span class="lineCov">          1 :         const int v = 4;</span>
+<span class="lineNum">      35 </span><span class="lineCov">          1 :         EXPECT_EQ(false,jeu.deplacement(x,y,u,v));</span>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span><span class="lineCov">          5 : TEST_F(DamesTests,test_deplacement_impossible){</span>
+<span class="lineNum">      39 </span><span class="lineCov">          1 :         const int x = 0;</span>
+<span class="lineNum">      40 </span><span class="lineCov">          1 :         const int y = 3;</span>
+<span class="lineNum">      41 </span><span class="lineCov">          1 :         const int u = 1;</span>
+<span class="lineNum">      42 </span><span class="lineCov">          1 :         const int v = 2;</span>
+<span class="lineNum">      43 </span><span class="lineCov">          1 :         EXPECT_EQ(false,jeu.deplacement(x,y,u,v));</span>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span><span class="lineCov">          1 : int main(int argc, char **argv) {</span>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">          1 :   ::testing::InitGoogleTest(&amp;argc, argv);</span></a>
+<span class="lineNum">      48 </span><span class="lineCov">          1 :   return RUN_ALL_TESTS();</span>
+<span class="lineNum">      49 </span><span class="lineCov">          3 : }</span>
 </pre>
       </td>
     </tr>

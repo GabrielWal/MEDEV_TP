@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-12-07 10:33:33</td>
+            <td class="headerValue">2017-12-07 11:10:29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -274,16 +274,16 @@
 <span class="lineNum">     212 </span>            :     struct _Iter_base
 <a name="213"><span class="lineNum">     213 </span>            :     {</a>
 <span class="lineNum">     214 </span>            :       typedef _Iterator iterator_type;
-<span class="lineNum">     215 </span><span class="lineCov">         62 :       static iterator_type _S_base(_Iterator __it)</span>
-<span class="lineNum">     216 </span><span class="lineCov">         62 :       { return __it; }</span>
+<span class="lineNum">     215 </span><span class="lineCov">        248 :       static iterator_type _S_base(_Iterator __it)</span>
+<span class="lineNum">     216 </span><span class="lineCov">        248 :       { return __it; }</span>
 <span class="lineNum">     217 </span>            :     };
 <span class="lineNum">     218 </span>            : 
 <span class="lineNum">     219 </span>            :   template&lt;typename _Iterator&gt;
 <span class="lineNum">     220 </span>            :     struct _Iter_base&lt;_Iterator, true&gt;
 <a name="221"><span class="lineNum">     221 </span>            :     {</a>
 <span class="lineNum">     222 </span>            :       typedef typename _Iterator::iterator_type iterator_type;
-<span class="lineNum">     223 </span><span class="lineCov">          3 :       static iterator_type _S_base(_Iterator __it)</span>
-<span class="lineNum">     224 </span><span class="lineCov">          3 :       { return __it.base(); }</span>
+<span class="lineNum">     223 </span><span class="lineCov">         12 :       static iterator_type _S_base(_Iterator __it)</span>
+<span class="lineNum">     224 </span><span class="lineCov">         12 :       { return __it.base(); }</span>
 <span class="lineNum">     225 </span>            :     };
 <span class="lineNum">     226 </span>            : 
 <span class="lineNum">     227 </span>            : #if __cplusplus &gt;= 201103L
