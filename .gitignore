@@ -9,3 +9,8 @@ MEDEV_TP2/MEDEV_TP2.xcodeproj
 MEDEV_TP3/test_googleTest/prog
 MEDEV_TP3/prog
 MEDEV_TP3/dames
+MEDEV_TP3/user_result
+MEDEV_TP3/user_test.info
+MEDEV_TP3/*.gcno
+MEDEV_TP3/*.gcda
+MEDEV_TP3/cc_prog
