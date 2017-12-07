@@ -20,6 +20,7 @@ public:
 	Dames(); // Constructeur
 	void disp() const; // Affiche plateau
 	vector<coord> deplacements_possibles(); // liste de déplacements possibles
+	bool deplacement(int x, int y, int u, int v); // deplacement du pion (i,j) en (u,v)
 };
 
 #endif
