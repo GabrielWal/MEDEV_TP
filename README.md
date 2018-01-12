@@ -12,6 +12,7 @@ You can find the source code here : [TP3](https://github.com/GabrielWal/MEDEV_TP
 
 For code coverage of TP3 follow the link : [CodeCoverage](https://gabrielwal.github.io/MEDEV_TP/MEDEV_TP3/user_result/)
 
-The Source Monitor results for the dames.cpp file : [Source Monitor Results](https://github.com/GabrielWal/MEDEV_TP/tree/gh-pages/MEDEV_TP3/sourceMonitor/sourceMonitor.png)
+The Source Monitor results for the dames.cpp file : 
+![Source Monitor Results](MEDEV_TP3/sourceMonitor/sourceMonitor.png)
 
 Gabriel Walbron & Adrien Jacquin
